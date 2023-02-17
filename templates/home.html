@@ -15,11 +15,21 @@
 		</style>
 	</head>
 	<body>
+		{% include 'nav.html' %}
+		<div>
+			<h1 class='container text-center my-5'>Murakaru Careers</h1>
+		</div>
+		<img id='banner' class='img-fluid' src='/static/banner.jpg'>
 		<div class='container'>
-			<h1 class='text-center my-5'>Murakaru Careers</h1>
-			<img id='banner' class='img-fluid' src='/static/banner.jpg'>
 			<h2 class='text-center my-4'>About Murakaru Co.</h2>
+			<div class='row' style='mb-3'>
+				<div class='col-md-8'>
 			<p class='lead'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec adipiscing tristique risus nec feugiat in fermentum. Quis varius quam quisque id. Sit amet nisl suscipit adipiscing. Scelerisque purus semper eget duis at tellus. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet non. Tincidunt tortor aliquam nulla facilisi cras fermentum. In egestas erat imperdiet sed. Convallis posuere morbi leo urna molestie at elementum eu. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius.</p>
+				</div>
+				<div class='d-none d-md-block col-4'>
+					<img src='/static/work.jpg' style='height:320px; border-radius:4px;'>
+				</div>
+			</div>
 			<h2 class='text-center my-4'>Jobs at Murakaru Co.</h2>
 			<div style='margin-bottom: 16px;'>
 				{% for job in jobs %}
@@ -27,10 +37,9 @@
 				{% endfor %}
 			</div>
 		</div>
-		<div class='text-center'>
-			<button type="button" class="btn btn-primary">Contact Us</button>
-			<p>Copyright 2023, Murakaru</p>
+		<div class='text-center py-2'>
+			<a class="btn btn-primary" href="mailto:info@murakaru.co.ke?subject=Questions%20for%20Murakaru%20Co.&body=Name%3A%20%3Cyour%20name%3E%0D%0AQuestion%3A%20%3Cyour%20question%3E">Contact Us</a>
 		</div>
-		</div>
+		{% include 'footer.html' %}
 	</body>
 </html>
