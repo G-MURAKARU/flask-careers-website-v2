@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Replit-generated files
+*replit*
+poetry.lock
+pyproject.toml
+.upm
+.config/
