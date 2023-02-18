@@ -1,43 +1,24 @@
 from flask import Flask, render_template, jsonify
+from database import load_jobs_from_db, load_job_from_db
 
 app = Flask(__name__)
 
-# database simulation
-JOBS = [
- {
-  'id': 1,
-  'title': 'Data Analyst',
-  'location': 'Nairobi, Kenya',
-  'salary': 'ksh 60,000'
- },
- {
-  'id': 2,
-  'title': 'Data Scientist',
-  'location': 'Mombasa, Kenya',
-  'salary': 'ksh 120,000'
- },
- {
-  'id': 3,
-  'title': 'Backend Engineer',
-  'location': 'Remote',
-  'salary': 'ksh 100,000'
- },
- {
-  'id': 4,
-  'title': 'Frontend Engineer',
-  'location': 'Isiolo, Kenya'
- },
-]
-
 
 @app.route("/")
-def hello_world():
+def home_page():
 	# in order to render dynamic content into a html page, provide arguments to the render_template function
-	return render_template('home.html', jobs=JOBS)
+	return render_template('home.html', jobs=load_jobs_from_db(), title='Home')
+
 
 @app.route("/api/jobs")
 def list_jobs():
-	return jsonify(JOBS)
+	return jsonify(load_jobs_from_db())
+
+
+@app.route("/job/<id>")
+def show_job(id):
+	job = load_job_from_db(id)
+	return render_template('job_page.html', job=job, title=job['title'])
 
 
 if __name__ == "__main__":
