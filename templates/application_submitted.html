@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block title %}Application Submitted{% endblock %}
+{% block body %}
+<h1 class="text-center my-4">Application Submitted</h1>
+<div class='container'>
+	<p>Your application for the role of <b>{{job['title']}}</b> at Murakaru Co. has been submitted!</p>
+	
+	<b>Full Name:</b>
+	<div class="mb-2">{{application['full_name']}}</div>
+	
+	<b>Email:</b>
+	<div class="mb-2">{{application['email']}}</div>
+	
+	<b>LinkedIn URL:</b>
+	<div class="mb-2">{{application['linkedin']}}</div>
+	
+	<b>Education:</b>
+	<div class="mb-2">{{application['education']}}</div>
+	
+	<b>Work Experience:</b>
+	<div class="mb-2">{{application['work']}}</div>
+	
+	<b>Resume URL:</b>
+	<div class="mb-2">{{application['resume_url']}}</div>
+</div>
+{% endblock %}
